@@ -1,113 +1,22 @@
-
 import 'package:flutter/material.dart';
+import 'music_card.dart';
 
 void main() {
-runApp(
-MaterialApp(
-debugShowCheckedModeBanner: false,
-home: ProductScreen(),
-),
-);
-}
-
-class ProductScreen extends StatelessWidget {
-ProductScreen({super.key});
-
-final List<Map<String, dynamic>> products = [
-{
-"name": "Samsung Galaxy Phone",
-"price": "₹15,999",
-"image":
-"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
-},
-{
-"name": "Wireless Headphones",
-"price": "₹1,499",
-"image":
-"https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
-},
-{
-"name": "Smart Watch",
-"price": "₹2,999",
-"image":
-"https://images.unsplash.com/photo-1523275335684-37898b6baf30",
-},
-];
-
-@override
-Widget build(BuildContext context) {
-return Scaffold(
-appBar: AppBar(
-title: const Text("Flipkart Products"),
-),
-
-body: ListView.builder(
-padding: const EdgeInsets.all(10),
-
-itemCount: products.length,
-
-itemBuilder: (context, index) {
-return Card(
-margin: const EdgeInsets.only(bottom: 15),
-elevation: 4,
-
-child: Padding(
-padding: const EdgeInsets.all(12),
-
-child: Column(
-crossAxisAlignment: CrossAxisAlignment.start,
-
-children: [
-// Product Image
-Image.network(
-products[index]["image"],
-height: 180,
-width: double.infinity,
-fit: BoxFit.contain,
-),
-
-const SizedBox(height: 10),
-
-// Product Name
-Text(
-products[index]["name"],
-style: const TextStyle(
-fontSize: 20,
-fontWeight: FontWeight.bold,
-),
-),
-
-const SizedBox(height: 8),
-
-// Product Price
-Text(
-products[index]["price"],
-style: const TextStyle(
-fontSize: 18,
-fontWeight: FontWeight.bold,
-),
-),
-
-const SizedBox(height: 10),
-
-// Buy Button
-SizedBox(
-width: double.infinity,
-child: ElevatedButton(
-onPressed: () {
-print(
-"${products[index]["name"]} Buy button clicked",
-);
-},
-child: const Text("Buy Now"),
-),
-),
-],
-),
-),
-);
-},
-),
-);
-}
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("My Playlist"),
+        ),
+        body: const Padding(
+          padding: EdgeInsets.all(16),
+          child: MusicCard(
+            songName: "Shape of You",
+            artistName: "Ed Sheeran",
+          ),
+        ),
+      ),
+    ),
+  );
 }
