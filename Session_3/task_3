@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
+    ),
+  );
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  String favoriteFood = "Pizza";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("My Favorites"),
+      ),
+
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(favoriteFood),
+
+            Text("My Favorite IPL Team: Chennai Super Kings"),
+
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  favoriteFood = "Updated!";
+                });
+              },
+              child: Text("Update Food"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
